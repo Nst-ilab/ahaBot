@@ -1,0 +1,9 @@
+{
+    "あぁ...ヾ(｡>﹏<｡)ﾉ":{"sentiment":"negative","language":"ja"},
+    "たいへんだね(´･ω･`)":{"sentiment":"negative","language":"ja"},
+    "へぇ(´･∀･`)":{"sentiment":"neutral","language":"ja"},
+    "たしかに!＼(^o^)／":{"sentiment":"positve","language":"ja"},
+    "aha...ヾ(｡>﹏<｡)ﾉ":{"sentiment":"negative","language":"en"},
+    "bha...ヾ(｡>﹏<｡)ﾉ":{"sentiment":"positive","language":"en"},
+    "cha...ヾ(｡>﹏<｡)ﾉ":{"sentiment":"neutral","language":"en"}
+}

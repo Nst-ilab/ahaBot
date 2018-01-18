@@ -1,15 +1,24 @@
 import random
+import boto3
+import logging
+import json
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+#Region指定しないと、デフォルトのUSリージョンが使われる
+clientLambda = boto3.client('lambda', region_name='ap-northeast-1')
+
+#定数確率の定義　0.5
+RESPONSE = 0.5
 
 def lambda_handler(event, context):
     
-    # TODO implement
-    
-    # 返すかどうかの判断
-    if random.random() <= 0.5:
-        return None
-    
-    language = event["analysedMessage"]["language"]
+    msg_language = event["analysedMessage"]["language"]
     sentiment_score = event["analysedMessage"]["documentSentiment"]["score"]
+    
+    logger.info(msg_language)
+    logger.info(sentiment_score)
     
     #分岐判断　ニュートラル、
     if  -1.0 <= sentiment_score <= -0.33:
@@ -18,30 +27,22 @@ def lambda_handler(event, context):
         msg_sentiment = "neutral"
     else: 
         msg_sentiment = "positve"
-
-    #辞書定義。あとでconstに移す
-    aha_dic = {
-        "あぁ...(*'ω'*)":{"sentiment":"negative","language":"ja"},
-        "たいへんだね(*'ω'*)":{"sentiment":"negative","language":"ja"},
-        "へぇ(*'ω'*)":{"sentiment":"neutral","language":"ja"},
-        "たしかに!(*'ω'*)":{"sentiment":"positve","language":"ja"}
-    }
+   
+    #辞書の読み込み
+    aha_dic = load_dic()
     
-    response = []
     #検索
+    response = []
     for word,word_attribute in aha_dic.items():
         if word_attribute["sentiment"] == msg_sentiment:
-            response.append(word)
+            if word_attribute["language"] == msg_language: 
+                response.append(word)
             
-    
-    return random.choice(response)
+    logger.info(response)
+    return { "message" : random.choice(response) }
 
-    #if sentiment_score in range(-1.0,-0.33):
-    #    sentiment = "negative"
-    #elif sentiment_score in range(-0.33,0.33):
-    #    sentiment = "neutral"
-    #else: 
-    #    sentiment = "positve"
- #   aha_list = []
- #   aha_list = ['']
- #   return sentiment
+def load_dic():  
+  #リアクションサービスのリストは別途Jsonにて管理
+    with open("aha_dic.json", "r") as file:
+        aha_dic = json.load(file)
+        return aha_dic
