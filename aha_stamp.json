@@ -1,0 +1,14 @@
+{
+    "neutral":[
+        {"packageId":"2","stickerId":"151"},
+        {"packageId":"2","stickerId":"142"}
+        ],
+    "positive":[
+        {"packageId":"2","stickerId":"176"},
+        {"packageId":"1","stickerId":"413"}
+        ],
+    "negative":[
+        {"packageId":"1","stickerId":"423"},
+        {"packageId":"2","stickerId":"25"}
+        ]
+}

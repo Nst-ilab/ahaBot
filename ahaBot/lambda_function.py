@@ -26,10 +26,13 @@ def lambda_handler(event, context):
     elif -0.33 < sentiment_score < 0.33:
         msg_sentiment = "neutral"
     else: 
-        msg_sentiment = "positve"
+        msg_sentiment = "positive"
    
     #辞書の読み込み
-    aha_dic = load_dic()
+    aha_dic = load_dic("aha_dic.json")
+    aha_stamp = load_dic("aha_stamp.json")
+    
+    logger.info(aha_stamp)
     
     #検索
     response = []
@@ -39,10 +42,12 @@ def lambda_handler(event, context):
                 response.append(word)
             
     logger.info(response)
-    return { "message" : random.choice(response) }
+#   return { "message" : random.choice(response) }
+    ret =  { "message" : random.choice(response), "stamp" : random.choice(aha_stamp[msg_sentiment])}
+    return ret
 
-def load_dic():  
+def load_dic(file_name):  
   #リアクションサービスのリストは別途Jsonにて管理
-    with open("aha_dic.json", "r") as file:
+    with open(file_name, "r") as file:
         aha_dic = json.load(file)
         return aha_dic
