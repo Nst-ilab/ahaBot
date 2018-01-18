@@ -3,6 +3,11 @@ import random
 def lambda_handler(event, context):
     
     # TODO implement
+    
+    # 返すかどうかの判断
+    if random.random() <= 0.5:
+        return None
+    
     language = event["analysedMessage"]["language"]
     sentiment_score = event["analysedMessage"]["documentSentiment"]["score"]
     
@@ -16,10 +21,10 @@ def lambda_handler(event, context):
 
     #辞書定義。あとでconstに移す
     aha_dic = {
-        "あぁ...":{"sentiment":"negative","language":"ja"},
-        "たいへんだね":{"sentiment":"negative","language":"ja"},
-        "へぇ":{"sentiment":"neutral","language":"ja"},
-        "たしかに!":{"sentiment":"positve","language":"ja"}
+        "あぁ...(*'ω'*)":{"sentiment":"negative","language":"ja"},
+        "たいへんだね(*'ω'*)":{"sentiment":"negative","language":"ja"},
+        "へぇ(*'ω'*)":{"sentiment":"neutral","language":"ja"},
+        "たしかに!(*'ω'*)":{"sentiment":"positve","language":"ja"}
     }
     
     response = []
@@ -27,6 +32,7 @@ def lambda_handler(event, context):
     for word,word_attribute in aha_dic.items():
         if word_attribute["sentiment"] == msg_sentiment:
             response.append(word)
+            
     
     return random.choice(response)
 
