@@ -1,9 +1,18 @@
 {
-    "あぁ...ヾ(｡>﹏<｡)ﾉ":{"sentiment":"negative","language":"ja"},
+    "ふーん(´･ω･`)":{"sentiment":"neutral","language":"ja"},
+    "へえ(´･∀･`)":{"sentiment":"neutral","language":"ja"},
+    "そうなんだ(´∂∀∂｀*)":{"sentiment":"neutral","language":"ja"},
+    "なるほど(｡･д･｡)b":{"sentiment":"positive","language":"ja"},
+    "そうだよね(´･∀･`)":{"sentiment":"positive","language":"ja"},
+    "あ〜（ちょっとわかってない）(・Ω・)":{"sentiment":"neutral","language":"ja"},
+    "ああ！！(ﾟ∇ﾟ)":{"sentiment":"positive","language":"ja"},
+    "ああ。。。悲しいヾ(｡>﹏<｡)ﾉ":{"sentiment":"negative","language":"ja"},
     "たいへんだね(´･ω･`)":{"sentiment":"negative","language":"ja"},
-    "へぇ(´･∀･`)":{"sentiment":"neutral","language":"ja"},
-    "たしかに!＼(^o^)／":{"sentiment":"positve","language":"ja"},
-    "aha...ヾ(｡>﹏<｡)ﾉ":{"sentiment":"negative","language":"en"},
-    "bha...ヾ(｡>﹏<｡)ﾉ":{"sentiment":"positive","language":"en"},
-    "cha...ヾ(｡>﹏<｡)ﾉ":{"sentiment":"neutral","language":"en"}
+    "ほんと？( ´・д・)？":{"sentiment":"negative","language":"ja"},
+    "わかる(・ω・´●)":{"sentiment":"negative","language":"ja"},
+    "あるある(´ﾟ∀ﾟ`)!":{"sentiment":"negative","language":"ja"},
+    "なにが( ´・д・)？":{"sentiment":"neutral","language":"ja"},
+    "なんで？( ´・д・)？":{"sentiment":"neutral","language":"ja"},
+    "たしかに！＼(^o^)／":{"sentiment":"positive","language":"ja"},
+    "ちょっとわかんない(ΦwΦ)":{"sentiment":"negative","language":"ja"}
 }
